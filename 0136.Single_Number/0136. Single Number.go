@@ -22,12 +22,11 @@ import "fmt"
 // }
 
 // 位运算，使用异或
-func singleNumber(nums []int) int {
-	single := 0
+func singleNumber(nums []int) (single int) {
 	for _, num := range nums {
 		single ^= num
 	}
-	return single
+	return
 }
 
 func main() {
