@@ -14,7 +14,6 @@ func Test_singleNumber(t *testing.T) {
 		args args
 		want []int
 	}{
-		// TODO: Add test cases.
 		{
 			name: "Example 1",
 			args: args{nums: []int{1, 2, 1, 3, 2, 5}},
