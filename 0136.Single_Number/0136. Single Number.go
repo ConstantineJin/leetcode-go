@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 // 遍历，使用哈希表与空结构体实现set
 // type EST struct {
 // }
@@ -27,9 +25,4 @@ func singleNumber(nums []int) (single int) {
 		single ^= num
 	}
 	return
-}
-
-func main() {
-	nums := []int{2, 2, 1}
-	fmt.Println(singleNumber(nums))
 }
