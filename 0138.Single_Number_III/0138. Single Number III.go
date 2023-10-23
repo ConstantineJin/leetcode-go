@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func singleNumber(nums []int) []int {
 	xorSum := 0
 	// 第一遍遍历获取全体元素的异或和，亦即两个只出现一次的元素的异或和
@@ -20,9 +18,4 @@ func singleNumber(nums []int) []int {
 		}
 	}
 	return ans
-}
-
-func main() {
-	nums := []int{1, 2, 1, 3, 2, 5}
-	fmt.Println(singleNumber(nums))
 }
