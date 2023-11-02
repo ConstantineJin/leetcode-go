@@ -17,9 +17,9 @@ func smallestMissingValueSubtree(parents []int, nums []int) []int {
 			dfs(child)
 		}
 	}
-	res, node, iNode := make([]int, n), -1, 1
+	ans, node, iNode := make([]int, n), -1, 1
 	for i := 0; i < n; i++ {
-		res[i] = 1
+		ans[i] = 1
 		if nums[i] == 1 {
 			node = i
 		}
@@ -29,7 +29,7 @@ func smallestMissingValueSubtree(parents []int, nums []int) []int {
 		for geneSet[iNode] {
 			iNode++
 		}
-		res[node], node = iNode, parents[node]
+		ans[node], node = iNode, parents[node]
 	}
-	return res
+	return ans
 }
