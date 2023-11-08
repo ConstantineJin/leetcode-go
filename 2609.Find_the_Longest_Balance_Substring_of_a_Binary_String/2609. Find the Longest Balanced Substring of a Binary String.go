@@ -1,0 +1,35 @@
+package main
+
+//func findTheLongestBalancedSubstring(s string) (res int) {
+//	var i, cnt0, cnt1 int
+//	for i < len(s) {
+//		for i < len(s) && s[i] == '1' {
+//			i++
+//		}
+//		for i < len(s) && s[i] == '0' {
+//			cnt0++
+//			i++
+//		}
+//		for i < len(s) && s[i] == '1' && cnt1 < cnt0 {
+//			cnt1++
+//			i++
+//		}
+//		res = max(res, cnt1)
+//		cnt0, cnt1 = 0, 0
+//	}
+//	return res * 2
+//}
+
+func findTheLongestBalancedSubstring(s string) (res int) {
+	pre, cur := 0, 0
+	for i, c := range s {
+		cur++
+		if i == len(s)-1 || byte(c) != s[i+1] {
+			if c == '1' {
+				res = max(res, min(pre, cur))
+			}
+			pre, cur = cur, 0
+		}
+	}
+	return res * 2
+}
