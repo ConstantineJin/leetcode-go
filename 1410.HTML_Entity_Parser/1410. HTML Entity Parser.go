@@ -1,5 +1,16 @@
 package main
 
+// 调库
+//func entityParser(text string) string {
+//	mp := map[string]string{"&quot;": "\"", "&apos;": "'", "&gt;": ">", "&lt;": "<", "&frasl;": "/"}
+//	for k, v := range mp {
+//		text = strings.Replace(text, k, v, -1)
+//	}
+//	text = strings.Replace(text, "&amp;", "&", -1) // "&"必须在最后单独替换（因为map无序）
+//	return text
+//}
+
+// 模拟
 func entityParser(text string) string {
 	start, ans := -1, make([]byte, 0)
 	mp := map[string]byte{"quot": '"', "apos": '\'', "amp": '&', "gt": '>', "lt": '<', "frasl": '/'} // mp的key为HTML代码中的字符实体，value为字符本身
