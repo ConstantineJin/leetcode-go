@@ -44,11 +44,25 @@ import "sort"
 //}
 
 // 贪心+二分
+//func lengthOfLIS(nums []int) int {
+//	var g = make([]int, 0) // g[i]表示长度为i+1的IS的末尾元素的最小值
+//	for _, num := range nums {
+//		var j = sort.SearchInts(g, num)
+//		if j == len(g) { // >=num 的g[j]不存在
+//			g = append(g, num)
+//		} else {
+//			g[j] = num
+//		}
+//	}
+//	return len(g)
+//}
+
+// 原地修改
 func lengthOfLIS(nums []int) int {
-	var g = make([]int, 0) // 维护LIS
+	var g = nums[:0]
 	for _, num := range nums {
 		var j = sort.SearchInts(g, num)
-		if j == len(g) { // >=num 的 g[j] 不存在
+		if j == len(g) { // >=num 的g[j]不存在
 			g = append(g, num)
 		} else {
 			g[j] = num
