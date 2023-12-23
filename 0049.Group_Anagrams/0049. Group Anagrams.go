@@ -24,9 +24,7 @@ func groupAnagrams(strs []string) (res [][]string) {
 	mp := map[string][]string{}
 	for _, str := range strs {
 		s := []byte(str)
-		sort.Slice(s, func(i, j int) bool {
-			return s[i] < s[j]
-		})
+		sort.Slice(s, func(i, j int) bool { return s[i] < s[j] })
 		mp[string(s)] = append(mp[string(s)], str)
 	}
 	for _, m := range mp {
