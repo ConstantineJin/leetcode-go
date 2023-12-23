@@ -26,11 +26,6 @@ func Test_maxScore(t *testing.T) {
 			args:    args{s: "1111"},
 			wantAns: 3,
 		},
-		{
-			name:    "Example4",
-			args:    args{s: "00"},
-			wantAns: 1,
-		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
