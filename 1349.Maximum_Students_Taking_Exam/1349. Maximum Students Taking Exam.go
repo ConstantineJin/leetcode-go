@@ -20,7 +20,7 @@ func maxStudents(seats [][]byte) int {
 		}
 	}
 	var dfs func(int, int) int
-	dfs = func(i int, j int) (res int) {
+	dfs = func(i int, j int) (res int) { // dfs(i,j)表示在第i排的座位状态为j的情况下，前i排的最大学生数
 		var p = &mem[i][j]
 		if *p != -1 { // 如果已经计算过了
 			return *p // 直接返回结果
