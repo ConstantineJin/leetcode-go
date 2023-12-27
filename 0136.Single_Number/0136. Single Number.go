@@ -1,8 +1,7 @@
 package main
 
 // 遍历，使用哈希表与空结构体实现set
-// type EST struct {
-// }
+// type EST struct {}
 
 // func singleNumber(nums []int) int {
 // 	set := make(map[int]EST)
