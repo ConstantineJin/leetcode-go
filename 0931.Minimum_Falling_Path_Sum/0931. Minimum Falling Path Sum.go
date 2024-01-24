@@ -3,7 +3,7 @@ package main
 import "math"
 
 func minFallingPathSum(matrix [][]int) int {
-	n, ans := len(matrix), math.MaxInt
+	var n, ans = len(matrix), math.MaxInt
 	for i := n - 2; i >= 0; i-- { // 从倒数第二行开始向上递推
 		matrix[i][0] += min(matrix[i+1][0], matrix[i+1][1]) // 每行首尾元素特殊处理
 		matrix[i][n-1] += min(matrix[i+1][n-2], matrix[i+1][n-1])
