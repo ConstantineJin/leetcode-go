@@ -8,9 +8,7 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-type pair struct {
-	y, v int
-}
+type pair struct{ y, v int }
 
 func verticalTraversal(root *TreeNode) [][]int {
 	var dfs func(node *TreeNode, x, y int)
