@@ -22,7 +22,7 @@ package main
 
 // 方法2: 哈希表，时间复杂度O(n)
 func countTriplets(arr []int) (ans int) {
-	cnt, total := make(map[int]int), make(map[int]int) // cnt用于存储前缀异或和的出现次数，total用于存储前缀异或和的下标之和
+	cnt, total := make(map[int]int), make(map[int]int) // 两个哈希表的key都是前缀异或和，cnt的value为前缀异或和的出现次数，total的value为前缀异或和的下标之和
 	var prefixXOR int
 	for k, v := range arr {
 		if m, ok := cnt[prefixXOR^v]; ok {
