@@ -5,17 +5,15 @@ func longestPalindrome(s string) (ans int) {
 	for i := 0; i < len(s); i++ {
 		mp[s[i]]++
 	}
-	var odd bool
+	var hasOdd int
 	for _, v := range mp {
 		if v%2 == 1 {
-			odd = true
+			hasOdd = 1
 			ans += v - 1
 		} else {
 			ans += v
 		}
 	}
-	if odd {
-		ans += 1
-	}
+	ans += hasOdd
 	return
 }
