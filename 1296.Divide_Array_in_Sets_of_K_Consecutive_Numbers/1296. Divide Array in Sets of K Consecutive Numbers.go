@@ -3,8 +3,7 @@ package main
 import "sort"
 
 func isPossibleDivide(nums []int, k int) bool {
-	n := len(nums)
-	if n%k > 0 {
+	if len(nums)%k > 0 {
 		return false
 	}
 	mp := make(map[int]int)
