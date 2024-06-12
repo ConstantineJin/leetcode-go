@@ -1,6 +1,6 @@
 package main
 
-// 方法1：树状数组
+// NumArray 树状数组
 type NumArray struct{ nums, tree []int }
 
 // Constructor 构造NumArray
@@ -17,23 +17,23 @@ func Constructor(nums []int) NumArray {
 }
 
 // Update 将下标为index的元素的值更新为val
-func (this *NumArray) Update(index, val int) {
-	delta := val - this.nums[index]
-	this.nums[index] = val
-	for i := index + 1; i < len(this.tree); i += i & -i {
-		this.tree[i] += delta
+func (a *NumArray) Update(index, val int) {
+	delta := val - a.nums[index]
+	a.nums[index] = val
+	for i := index + 1; i < len(a.tree); i += i & -i {
+		a.tree[i] += delta
 	}
 }
 
 // prefixSum 求前缀和
-func (this *NumArray) prefixSum(i int) (s int) {
+func (a *NumArray) prefixSum(i int) (s int) {
 	for ; i > 0; i &= i - 1 { // i -= i & -i 的另一种写法
-		s += this.tree[i]
+		s += a.tree[i]
 	}
 	return
 }
 
 // SumRange 返回[left, right]闭区间内的元素和
-func (this *NumArray) SumRange(left, right int) (sum int) {
-	return this.prefixSum(right+1) - this.prefixSum(left) // right+1的前缀和与left的前缀和之差即为所求
+func (a *NumArray) SumRange(left, right int) (sum int) {
+	return a.prefixSum(right+1) - a.prefixSum(left) // right+1的前缀和与left的前缀和之差即为所求
 }
