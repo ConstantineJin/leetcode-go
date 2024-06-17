@@ -1,7 +1,7 @@
 package main
 
 func isSubsequence(s string, t string) bool {
-	var m, n = len(s), len(t)
+	m, n := len(s), len(t)
 	if m > n {
 		return false
 	}
