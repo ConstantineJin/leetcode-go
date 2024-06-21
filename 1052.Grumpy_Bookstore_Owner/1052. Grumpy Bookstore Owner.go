@@ -1,14 +1,14 @@
 package main
 
 func maxSatisfied(customers []int, grumpy []int, minutes int) int {
-	var n = len(customers)
+	n := len(customers)
 	var temp int // 滑动窗口，老板使自己不生气的区间中，原本不满意的顾客数量
 	for i := 0; i < minutes; i++ {
 		if grumpy[i] == 1 {
 			temp += customers[i]
 		}
 	}
-	var mx = temp
+	mx := temp
 	for i := 0; i < n-minutes; i++ {
 		if grumpy[i] == 1 {
 			temp -= customers[i]
