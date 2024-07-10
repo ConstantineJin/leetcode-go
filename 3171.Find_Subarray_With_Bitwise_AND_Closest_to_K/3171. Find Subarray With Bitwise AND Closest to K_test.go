@@ -18,23 +18,15 @@ func Test_minimumDifference(t *testing.T) {
 				nums: []int{1, 2, 4, 5},
 				k:    3,
 			},
-			want: 1,
+			want: 0,
 		},
 		{
 			name: "Example2",
 			args: args{
-				nums: []int{1, 2, 4, 5},
-				k:    3,
+				nums: []int{1, 3, 1, 3},
+				k:    2,
 			},
 			want: 1,
-		},
-		{
-			name: "Example3",
-			args: args{
-				nums: []int{1, 2, 1, 2},
-				k:    0,
-			},
-			want: 0,
 		},
 		{
 			name: "Example3",
