@@ -1,7 +1,7 @@
 package main
 
 func countSubarrays(nums []int, k int) (ans int64) {
-	var left, right int
+	var left, right int // [left,right) 是满足 nums[j]=k 的 j 的范围
 	for i, num := range nums {
 		for j := i - 1; j >= 0 && nums[j]&num != nums[j]; j-- {
 			nums[j] &= num
