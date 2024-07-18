@@ -8,7 +8,7 @@ func numberOfSets(n, maxDistance int, roads [][]int) (ans int) {
 		g[i] = make([]int, n)
 		for j := range g[i] {
 			if j != i { // g[i][i] = 0
-				g[i][j] = math.MaxInt / 2
+				g[i][j] = math.MaxInt / 2 // 防止溢出
 			}
 		}
 	}
