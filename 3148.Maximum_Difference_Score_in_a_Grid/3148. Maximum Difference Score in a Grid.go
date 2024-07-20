@@ -15,7 +15,7 @@ func maxScore(grid [][]int) int {
 		f[i+1][0] = math.MaxInt
 		for j, v := range row {
 			mn := min(f[i][j+1], f[i+1][j])
-			ans = max(ans, v-mn)
+			ans = max(ans, v-mn) // 至少要移动一次
 			f[i+1][j+1] = min(mn, v)
 		}
 	}
