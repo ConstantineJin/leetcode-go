@@ -46,7 +46,7 @@ func strStr(haystack, needle string) int {
 
 	// 线性时空复杂度求 next 数组
 	next := make([]int, m)
-	for i, j := 1, 0; i < m; i++ {
+	for i, j := 1, 0; i < m; i++ { // j 表示当前匹配的公共前后缀的长度
 		for j > 0 && needle[i] != needle[j] {
 			j = next[j-1]
 		}
