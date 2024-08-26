@@ -7,14 +7,15 @@ type Employee struct {
 }
 
 func getImportance(employees []*Employee, id int) int {
-	mp := make(map[int]*Employee)
+	mp := make(map[int]*Employee, len(employees))
 	for _, employee := range employees {
 		mp[employee.Id] = employee
 	}
 	var dfs func(id int) int
 	dfs = func(id int) int {
-		res := mp[id].Importance
-		for _, subordinate := range mp[id].Subordinates {
+		employee := mp[id]
+		res := employee.Importance
+		for _, subordinate := range employee.Subordinates {
 			res += dfs(subordinate)
 		}
 		return res
