@@ -16,13 +16,11 @@ func robotSim(commands []int, obstacles [][]int) (ans int) {
 			heading = (heading + 1) % 4
 		default:
 			for ; command > 0; command-- {
-				x += dirs[heading][0]
-				y += dirs[heading][1]
-				if _, ok := mp[[2]int{x, y}]; ok { // 遇到障碍物，需要停在障碍物前那个格子
-					x -= dirs[heading][0]
-					y -= dirs[heading][1]
+				if _, ok := mp[[2]int{x + dirs[heading][0], y + dirs[heading][1]}]; ok { // 遇到障碍物，需要停在障碍物前那个格子
 					break
 				}
+				x += dirs[heading][0]
+				y += dirs[heading][1]
 				ans = max(ans, x*x+y*y)
 			}
 		}
