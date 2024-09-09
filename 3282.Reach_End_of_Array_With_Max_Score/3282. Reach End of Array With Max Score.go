@@ -1,14 +1,10 @@
 package main
 
 func findMaximumScore(nums []int) (ans int64) {
-	n := len(nums)
-	i, mx := 0, nums[0]
-	for j := 1; j < n; j++ {
-		if nums[j] > mx {
-			ans += int64((j - i) * mx)
-			i, mx = j, nums[j]
-		}
+	var mx int
+	for _, num := range nums[:len(nums)-1] {
+		mx = max(mx, num)
+		ans += int64(mx)
 	}
-	ans += int64((n - 1 - i) * mx)
 	return
 }
