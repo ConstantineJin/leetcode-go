@@ -72,10 +72,10 @@ func (t *Twitter) GetNewsFeed(userId int) []int {
 	h := &tweetHeap
 	heap.Init(h)
 	for len(res) < 10 && h.Len() > 0 {
-		text := heap.Pop(h).(*Tweet)
-		res = append(res, text.tweetId)
-		if text.next != nil {
-			heap.Push(h, text.next)
+		tweet := heap.Pop(h).(*Tweet)
+		res = append(res, tweet.tweetId)
+		if tweet.next != nil {
+			heap.Push(h, tweet.next)
 		}
 	}
 	return res
