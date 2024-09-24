@@ -1,8 +1,6 @@
 package main
 
-import (
-	"strconv"
-)
+import "strconv"
 
 func longestCommonPrefix(arr1, arr2 []int) (ans int) {
 	var has = make(map[string]bool)
