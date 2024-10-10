@@ -8,8 +8,8 @@ import (
 func gcdValues(nums []int, queries []int64) []int {
 	mx := slices.Max(nums)
 	freq := make([]int, mx+1)
-	for _, v := range nums {
-		freq[v]++
+	for _, num := range nums {
+		freq[num]++
 	}
 	cntGcd := make([]int, mx+1)
 	for i := mx; i > 0; i-- {
