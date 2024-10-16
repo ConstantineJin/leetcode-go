@@ -6,7 +6,7 @@ func superEggDrop(k, n int) int {
 	for i := 1; ; i++ {
 		f[i] = make([]int, k+1)
 		for j := 1; j <= k; j++ {
-			f[i][j] = f[i-1][j] + f[i-1][j-1] + 1
+			f[i][j] = f[i-1][j] + f[i-1][j-1] + 1 // 在 f[i-1][j-1]+1 楼扔第一枚鸡蛋，如果碎了转移到 f[i-1][j-1]，如果没碎就转移到 f[i-1][j]
 		}
 		if f[i][k] >= n {
 			return i
