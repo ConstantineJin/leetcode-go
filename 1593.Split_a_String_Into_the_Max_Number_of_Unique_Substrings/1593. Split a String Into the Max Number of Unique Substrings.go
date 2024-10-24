@@ -10,14 +10,14 @@ func maxUniqueSplit(s string) (ans int) {
 		}
 		if i == n {
 			ans = max(ans, cnt)
-			return
-		}
-		for j := i + 1; j <= n; j++ {
-			subStr := s[i:j]
-			if _, ok := set[subStr]; !ok {
-				set[subStr] = struct{}{}
-				dfs(j, cnt+1)
-				delete(set, subStr)
+		} else {
+			for j := i + 1; j <= n; j++ {
+				subStr := s[i:j]
+				if _, ok := set[subStr]; !ok {
+					set[subStr] = struct{}{}
+					dfs(j, cnt+1)
+					delete(set, subStr)
+				}
 			}
 		}
 	}
