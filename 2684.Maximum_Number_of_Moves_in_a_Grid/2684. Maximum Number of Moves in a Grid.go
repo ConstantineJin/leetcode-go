@@ -1,22 +1,32 @@
 package main
 
 func maxMoves(grid [][]int) (ans int) {
-	var m, n = len(grid), len(grid[0])
-	var dfs func(i, j int)
-	dfs = func(i, j int) {
-		ans = max(ans, j)
-		if j == n-1 {
-			return
-		}
-		for k := max(0, i-1); k < min(m, i+2); k++ {
-			if grid[k][j+1] > grid[i][j] {
-				dfs(k, j+1)
+	m, n := len(grid), len(grid[0])
+	dp := make([][]int, m)
+	canReach := make([][]bool, m)
+	for i := range dp {
+		dp[i] = make([]int, n)
+		canReach[i] = make([]bool, n)
+		canReach[i][0] = true
+	}
+	for j := 1; j < n; j++ {
+		for i := range m {
+			if i > 0 && canReach[i-1][j-1] && grid[i][j] > grid[i-1][j-1] {
+				dp[i][j] = max(dp[i][j], dp[i-1][j-1]+1)
+				canReach[i][j] = true
+			}
+			if canReach[i][j-1] && grid[i][j] > grid[i][j-1] {
+				dp[i][j] = max(dp[i][j], dp[i][j-1]+1)
+				canReach[i][j] = true
+			}
+			if i < m-1 && canReach[i+1][j-1] && grid[i][j] > grid[i+1][j-1] {
+				dp[i][j] = max(dp[i][j], dp[i+1][j-1]+1)
+				canReach[i][j] = true
+			}
+			if canReach[i][j] {
+				ans = max(ans, dp[i][j])
 			}
 		}
-		grid[i][j] = 0
-	}
-	for i := range grid {
-		dfs(i, 0)
 	}
 	return
 }
