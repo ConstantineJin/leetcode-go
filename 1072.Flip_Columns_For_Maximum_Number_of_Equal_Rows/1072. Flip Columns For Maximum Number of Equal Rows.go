@@ -5,7 +5,7 @@ func maxEqualRowsAfterFlips(matrix [][]int) (ans int) {
 	for _, row := range matrix {
 		var r [5]uint
 		for i, v := range row {
-			r[i/64] |= uint(v^row[0]) << (i % 64) // 如果该列第一行为 1，那么翻转该列
+			r[i/64] |= uint(v^row[0]) << (i % 64) // 如果该行第一列为 1，那么翻转该行
 		}
 		mp[r]++
 	}
