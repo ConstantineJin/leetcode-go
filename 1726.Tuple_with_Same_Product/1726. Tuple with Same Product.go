@@ -1,14 +1,14 @@
 package main
 
-func tupleSameProduct(nums []int) (res int) {
+func tupleSameProduct(nums []int) (ans int) {
 	products := make(map[int]int)
-	for i := 0; i < len(nums); i++ {
+	for i := range nums {
 		for j := i + 1; j < len(nums); j++ {
 			products[nums[i]*nums[j]]++
 		}
 	}
-	for _, v := range products {
-		res += v * (v - 1) * 4
+	for _, product := range products {
+		ans += product * (product - 1) * 4
 	}
 	return
 }
